@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background-color: #ffffff; /* Solid white background for the whole page */
+}
+
+/* Centered Layout Wrapper */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff; /* Explicit clean white background */
+  padding: 20px;
+}
+
+/* Modern Card Layout with subtle contrast shadow */
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0; /* Subtle border so the card is visible against the white background */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+}
+
+.auth-card h2 {
+  color: #1a1a1a;
+  font-weight: 700;
+  margin-bottom: 25px;
+  text-align: center;
+  font-size: 26px;
+  letter-spacing: -0.5px;
+}
+
+/* Elegant Form Controls */
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #4a5568;
+  font-size: 14px;
+}
+
+/* CRITICAL FIX: Explicit background and high-contrast text color */
+.form-group input, .form-group select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 15px;
+  background-color: #ffffff; /* Forces white input boxes */
+  color: #1a1a1a !important;   /* FORCES typed text to be solid near-black */
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Styling for placeholders to ensure they are visible but distinct */
+.form-group input::placeholder {
+  color: #a0aec0;
+}
+
+.form-group input:focus, .form-group select:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+/* Vibrant Action Buttons */
+.btn-primary {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+/* Interactive Navigation Links */
+.link-container {
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.link-item {
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.link-item:hover {
+  text-decoration: underline;
+}
