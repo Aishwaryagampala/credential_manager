@@ -6,7 +6,8 @@ function ChangePassword() {
     userId: '',
     oldPassword: '',
     newPassword: '',
-    confirmPassword: ''
+    confirmPassword: '',
+    passwordChangeDate: '' // 1. Added date field to state
   });
 
   const handleChange = (e) => {
@@ -19,12 +20,13 @@ function ChangePassword() {
       const response = await fetch('http://localhost:8080/api/change-password', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(passwordData),
+        body: JSON.stringify(passwordData), // The date is now automatically included here!
       });
       const data = await response.json();
       if (response.ok) {
         alert(data.message);
-        setPasswordData({ userId: '', oldPassword: '', newPassword: '', confirmPassword: '' });
+        // 2. Clear state on success, including the date
+        setPasswordData({ userId: '', oldPassword: '', newPassword: '', confirmPassword: '', passwordChangeDate: '' });
       } else {
         alert(data.error);
       }
@@ -53,6 +55,19 @@ function ChangePassword() {
           <label>Confirm New Password</label>
           <input type="password" name="confirmPassword" value={passwordData.confirmPassword} onChange={handleChange} required placeholder="••••••••" />
         </div>
+
+        {/* 3. Added Password Change Date input box field */}
+        <div className="form-group">
+          <label>Password Change Date</label>
+          <input 
+            type="date" 
+            name="passwordChangeDate" 
+            value={passwordData.passwordChangeDate} 
+            onChange={handleChange} 
+            required 
+          />
+        </div>
+
         <button type="submit" className="btn-primary" style={{ background: '#7c3aed' }}>
           Update Password
         </button>
